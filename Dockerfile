@@ -1,9 +1,11 @@
-FROM eclipse-temurin:24
+FROM node:24
 
 WORKDIR /app
 
-COPY Main.java .
+COPY package*.json .
 
-RUN javac Main.java
+RUN npm install
 
-CMD ["java", "Main"]
+COPY index.js .
+
+CMD ["node", "index.js"]
