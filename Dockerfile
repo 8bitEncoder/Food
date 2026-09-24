@@ -1,11 +1,12 @@
-FROM node:24
+FROM oven/bun:1
 
 WORKDIR /app
 
-COPY package*.json .
+COPY package*.json ./
 
-RUN npm install
+RUN bun install
 
 COPY index.js .
+COPY public ./public
 
-CMD ["node", "index.js"]
+CMD ["bun", "index.js"]
